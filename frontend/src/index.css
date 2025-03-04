@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure full-page coverage */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  background: linear-gradient(to bottom right, #e0f2ff, #d6d6f5);
+}
+
+/* Fix flex issue */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main container */
+.main-container {
+  width: 100%;
+  max-width: 42rem; /* Slightly wider for better spacing */
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+/* Headings */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+/* File Upload Box */
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.upload-box:hover {
+  border-color: #3b82f6;
+}
+
+/* File Upload Icon */
+.upload-icon {
+  font-size: 2.5rem;
+  color: #3b82f6;
+  margin-bottom: 0.5rem;
+}
+
+/* Job Description Textarea */
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #374151;
+  background-color: white;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+
+/* Analyze Button */
+button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Results Section */
+.results {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #f9fafb;
+}
+
+/* Result Text */
+.results h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.results p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+/* Accordion Styles */
+.accordion {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.accordion-item {
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+  padding: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: #f3f4f6;
+  border-bottom: 1px solid #ddd;
+}
+
+.accordion-content {
+  padding: 1rem;
+  display: none;
+}
+
+.accordion-content.active {
+  display: block;
+}
+
+/* Ensure no unwanted black gaps */
+.full-width {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .main-container {
+    max-width: 90%;
+  }
+}
