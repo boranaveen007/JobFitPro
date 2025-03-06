@@ -3,12 +3,14 @@ import { MdCloudUpload } from "react-icons/md";
 
 type Props = {
   setResumeText: React.Dispatch<React.SetStateAction<string>>;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setJobDescription: React.Dispatch<React.SetStateAction<string>>;
-  onAnalyze: () => Promise<void>;
+  onAnalyze: (jobDescription?: string) => Promise<void>;
 };
 
 const ResumeUploader: React.FC<Props> = ({
   setResumeText,
+  setIsLoading,
   setJobDescription,
   onAnalyze,
 }) => {
@@ -17,6 +19,8 @@ const ResumeUploader: React.FC<Props> = ({
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsLoading(true);
+    // setIsAnalyzing(true); // Disable button while uploading
     const file = event.target.files?.[0];
     if (!file) return;
 
@@ -33,20 +37,26 @@ const ResumeUploader: React.FC<Props> = ({
       if (!response.ok) throw new Error("Failed to upload resume");
 
       const data = await response.json();
+      console.log('Resume parsed successfully!!')
       setResumeText(data.text);
     } catch (error) {
       console.error("Upload error:", error);
+    } finally {
+      setIsLoading(false);
+      // setIsAnalyzing(false); // Re-enable button after upload
     }
   };
 
   const handleAnalyze = async () => {
-    if (!fileName || !jobDesc.trim()) return;
-
+    if (!fileName || !jobDesc.trim()) {
+      console.log('Error in handleAnalyze');
+      return;
+    }
     setIsAnalyzing(true); // Disable button & show "Analyzing..."
     setJobDescription(jobDesc); // Store job description before analyzing
 
     try {
-      await onAnalyze();
+      await onAnalyze(jobDesc);
     } catch (error) {
       console.error("Analysis failed:", error);
     } finally {
@@ -56,7 +66,10 @@ const ResumeUploader: React.FC<Props> = ({
 
   return (
     <div className="w-full max-w-3xl bg-white shadow-lg rounded-xl p-6">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+      {/* <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+        🚀 JobFitPro - Resume Analyzer
+      </h1> */}
+      <h1 className="text-4xl font-bold text-center text-orange-500 mb-6">
         🚀 JobFitPro - Resume Analyzer
       </h1>
 

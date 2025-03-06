@@ -1,19 +1,25 @@
-import express from "express";
-import cors from "cors";
-import analyzeRoutes from "./routes/analyze";
+import dotenv from 'dotenv';
+dotenv.config();
+
+import express from 'express';
+import cors from 'cors';
+import { GroqService } from './services/groqService';
+import uploadRoutes from './routes/fileUploadRoutes';
+import analysisRoutes from './routes/resumeAnalysisRoutes';
 
 const app = express();
-const port = 5001;
+const port = process.env.PORT || 3000;
+const groqService = new GroqService();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use('/api', uploadRoutes);
+app.use('/api', analysisRoutes);
 
-// Routes
-app.use("/api", analyzeRoutes);
+app.get('/health', (req, res) => {
+  res.json({ status: 'healthy' });
+});
 
-// Start Server
 app.listen(port, () => {
-  console.log(`🚀 Server running on http://localhost:${port}`);
+  console.log(`🚀 Server running on port ${port}`);
 });
