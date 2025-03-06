@@ -1,41 +1,30 @@
-# Node.js dependencies
-node_modules/
-package-lock.json
-pnpm-lock.yaml
-yarn.lock
-
-# Environment variables
+# Ignore environment variables and secrets
 .env
-.env.local
-.env.development
-.env.production
 
-# Logs
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore build artifacts
+dist/
+build/
+
+# Ignore log files
 logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-vercel.json
 
-# Compiled TypeScript
-dist/
-out/
-build/
+# Ignore uploads (since files are processed and deleted)
+uploads/
 
-# Temporary files
-.DS_Store
-Thumbs.db
-
-# IDE settings
+# Ignore editor-specific files
 .vscode/
 .idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
+.DS_Store
+*.swp
 
-# Backend uploads folder (stores temporary uploaded files)
-backend/uploads/
+# Ignore Jest test cache & coverage
+coverage/
+jest-cache/
+jest-test-results.json
