@@ -77,9 +77,9 @@ const ResumeUploader: React.FC<Props> = ({
       <label className="flex flex-col items-center p-4 border-2 border-gray-300 rounded-lg w-full cursor-pointer hover:border-blue-500 transition">
         <MdCloudUpload className="text-4xl text-blue-500" />
         <span className="mt-2 font-bold text-gray-700">
-          {fileName ? fileName : "Click to upload your Resume (PDF/DOCX)"}
+          {fileName ? fileName : "Click to upload your Resume (PDF)"}
         </span>
-        <input type="file" accept=".pdf,.doc,.docx" className="hidden" onChange={handleFileChange} />
+        <input type="file" accept=".pdf" className="hidden" onChange={handleFileChange} />
       </label>
 
       {/* Job Description Input */}
