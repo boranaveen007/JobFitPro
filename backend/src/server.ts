@@ -11,7 +11,13 @@ const app = express();
 const port = process.env.PORT || 3000;
 const groqService = new GroqService();
 
-app.use(cors());
+
+// 🔹 Allow frontend requests
+app.use(cors({
+  origin: "*",  // Allow all origins (use specific domain in production)
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 app.use(express.json());
 app.use('/api', uploadRoutes);
 app.use('/api', analysisRoutes);
