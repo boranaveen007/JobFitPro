@@ -9,23 +9,22 @@ import analysisRoutes from './routes/resumeAnalysisRoutes';
 
 const app = express();
 const port = process.env.PORT || 3000;
-const groqService = new GroqService();
 
 
 // 🔹 Allow frontend requests
-app.use(cors({
-  origin: ["*", "http://localhost:5173", "https://job-fit-frontend.vercel.app"], // Replace with your frontend URL
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use('/api', uploadRoutes);
 app.use('/api', analysisRoutes);
-
 app.get('/health', (req, res) => {
   res.json({ status: 'healthy' });
 });
 
-app.listen(port, () => {
-  console.log(`🚀 Server running on port ${port}`);
-});
+// local deployment, uncomment below and comment out vercel deployment if using locally
+// app.listen(port, () => {
+//   console.log(`🚀 Server running on port ${port}`);
+// });
+
+// vercel deployment
+// Export app for Vercel (instead of listening directly)
+export default app;
