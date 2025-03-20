@@ -14,7 +14,7 @@ const groqService = new GroqService();
 
 // 🔹 Allow frontend requests
 app.use(cors({
-  origin: "*",  // Allow all origins (use specific domain in production)
+  origin: ["http://localhost:5173", "https://job-fit-frontend.vercel.app"], // Replace with your frontend URL
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
