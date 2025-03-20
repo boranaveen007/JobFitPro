@@ -29,7 +29,7 @@ const ResumeUploader: React.FC<Props> = ({
     formData.append("resume", file);
 
     try {
-      const response = await fetch("http://localhost:3000/api/upload", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/upload`, {
         method: "POST",
         body: formData,
       });

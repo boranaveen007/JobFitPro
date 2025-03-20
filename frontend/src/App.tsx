@@ -20,7 +20,7 @@ function App() {
     formData.append("jobDescription", jobDescription);
 
     try {
-      const response = await fetch("http://localhost:5001/api/analyze", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/analyze`, {
         method: "POST",
         body: formData,
       });
