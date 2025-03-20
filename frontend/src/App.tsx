@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ResumeWorth from "./components/ResumeWorth";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 function App() {
   const [resume, setResume] = useState<File | null>(null);
@@ -20,7 +21,7 @@ function App() {
     formData.append("jobDescription", jobDescription);
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/analyze`, {
+      const response = await fetch(`${API_URL}/api/analyze`, {
         method: "POST",
         body: formData,
       });

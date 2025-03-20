@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { MdCloudUpload } from "react-icons/md";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 type Props = {
   setResumeText: React.Dispatch<React.SetStateAction<string>>;
@@ -29,7 +30,7 @@ const ResumeUploader: React.FC<Props> = ({
     formData.append("resume", file);
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/upload`, {
+      const response = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         body: formData,
       });

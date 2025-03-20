@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ResumeUploader from "./ResumeUploader";
 import ResumeResults from "./ResumeResults";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 const ResumeAnalyzerApp = () => {
   const [resumeText, setResumeText] = useState<string>("");
@@ -18,7 +19,7 @@ const ResumeAnalyzerApp = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/analyze`, {
+      const response = await fetch(`${API_URL}/api/analyze`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ resumeText, jobDescription: jobDescToUse }),
