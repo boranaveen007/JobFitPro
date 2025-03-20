@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ResumeUploader from "./ResumeUploader";
 import ResumeResults from "./ResumeResults";
 
@@ -50,7 +50,7 @@ const ResumeAnalyzerApp = () => {
       />
 
       {/* Show Loading Indicator */}
-      {/* {isLoading && <p className="text-lg text-orange-300 mt-4">Analyzing...</p>} */}
+      {isLoading && <p className="text-lg text-orange-300 mt-4">Analyzing...</p>}
 
       {/* Show Results */}
       {analysisResult && <ResumeResults {...analysisResult} />}

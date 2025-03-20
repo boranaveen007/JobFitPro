@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ResumeWorth from "./components/ResumeWorth";
 
 function App() {
