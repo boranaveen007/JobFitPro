@@ -3,13 +3,11 @@ dotenv.config();
 
 import express from 'express';
 import cors from 'cors';
-import { GroqService } from './services/groqService';
 import uploadRoutes from './routes/fileUploadRoutes';
 import analysisRoutes from './routes/resumeAnalysisRoutes';
 
 const app = express();
-const port = process.env.PORT || 3000;
-
+// const port = process.env.PORT || 3000;
 
 // 🔹 Allow frontend requests
 app.use(cors({ origin: "*" }));
