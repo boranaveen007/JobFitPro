@@ -1,7 +1,8 @@
 import { useState } from "react";
 import ResumeUploader from "./ResumeUploader";
 import ResumeResults from "./ResumeResults";
-const API_URL = import.meta.env.REACT_APP_API_URL || "http://localhost:3000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+console.log('API_URL:', API_URL);
 
 const ResumeAnalyzerApp = () => {
   const [resumeText, setResumeText] = useState<string>("");
