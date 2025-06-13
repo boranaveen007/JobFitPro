@@ -13,8 +13,6 @@ router.post("/analyze-resume", async (req: Request, res: Response): Promise<void
 
     const { resume, job_desc } = req.body;
 
-    console.log(resume, job_desc, 'debbbb'); // ✅ Debugging Line
-
     if (!resume || !job_desc) {
       res.status(400).json({ error: "Missing resume or job description" });
       return; // ✅ Ensures function exits after response

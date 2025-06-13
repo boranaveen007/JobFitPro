@@ -1,5 +1,5 @@
 # Ignore environment variables and secrets
-.env
+# .env // make sure you uncomment this if you want your .env to go to git
 
 # Ignore Node.js dependencies
 node_modules/

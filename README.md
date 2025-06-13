@@ -1,97 +1,45 @@
-JobFitPro - AI-Powered Resume Analyzer 🚀
+JobFitPro is a free, open-source tool that helps you optimize your resume against any job description using AI. It analyzes key metrics like ATS Score, Job Match, Resume Structure, and AI-generated suggestions. Whether you’re tailoring your current resume or creating a new one from scratch, JobFitPro provides actionable insights to increase your chances of getting noticed.
 
-📢 JobFitPro is a free, open-source AI-powered resume analysis tool designed to help job seekers optimize their resumes for Applicant Tracking Systems (ATS) and job descriptions. Built with cutting-edge AI models and state-of-the-art resume parsing techniques, JobFitPro bridges the gap between job seekers and their dream jobs by providing structured feedback on resume ATS compatibility, job match, and formatting.
+⸻
 
-🌟 Why JobFitPro?
-
-💼 Many resume analysis tools are expensive and behind paywalls, limiting access to individuals who cannot afford them. JobFitPro is here to empower everyone with a cost-free alternative.
-
-🤖 Unlike ChatGPT’s limited free queries, JobFitPro is a dedicated tool optimized for resume evaluations with highly structured output.
-
-🧠 Powered by Open-Source AI Models – We utilize Llama 3 / Mistral for semantic analysis, BM25 for ATS keyword matching, and SBERT for semantic job-resume comparison.
-
-🎯 Who is this for?
-✅ Job Seekers who want ATS-friendly resumes
-✅ Recruiters looking for quick, structured insights
-✅ Developers interested in AI-powered resume analysis
-
-⚡ Features
-
-🔹 📄 Resume Parsing - Extracts text from PDFs & DOCX files
-🔹 📊 ATS Score Calculation - Measures how well your resume aligns with ATS requirements
-🔹 🎯 Job Match Analysis - Identifies matching & missing skills
-🔹 📑 Resume Structure Evaluation - Checks for completeness & readability
-🔹 📝 Detailed Feedback Report - Provides actionable insights for improvement
-🔹 🌍 100% Open-Source & Free - No subscriptions, no hidden fees
-
-🚀 Tech Stack
-
-Frontend
-	•	React (w/ TypeScript)
-	•	Vite for fast builds 
-	•	Tailwind CSS for modern UI 
-
-Backend
-	•	Node.js with Express 
-	•	TypeScript for type safety 
-	•	pdf-parse for resume parsing 
-	•	GROQ API (Llama-3/Mistral) for AI-powered analysis 
-
-AI Models Used
-	•	Llama-3 / Mistral (for structured feedback & NLP analysis)
-	
-📥 Installation & Setup
-
-Follow these steps to run JobFitPro on your local machine:
-
-1️⃣ Clone the Repository
-git clone https://github.com/yourusername/JobFitPro.git
+Step 1: Clone the Repository
+Start by cloning the repository to your local machine. You can do this by running the following command in your terminal:
+git clone https://github.com/boranaveen007/JobFitPro.git
 cd JobFitPro
 
-2️⃣ Backend Setup
-	1.	Navigate to the backend folder:
-        cd backend
-    2.	Install dependencies:
-        npm install
-	3.	Create a .env file inside the backend folder:
-        PORT=3000
-        GROQ_API_KEY=your_groq_api_key_here
-        GROQ_API_ENDPOINT=https://api.groq.com/v1
-    4.	Start the backend server:
-        npm run dev
+Step 2: Set Up Environment Variables
+Inside the project, you’ll find two folders: backend and frontend. Each has its own .env file.
+In the backend/.env file, replace the placeholder values as follows:
+PORT=3000
+GROQ_API_KEY=your_groq_api_key_here
 
-3️⃣ Frontend Setup
-	1.	Navigate to the frontend folder:
-        cd ../frontend
-	2.	Install dependencies:
-        npm install
-    3.	Start the frontend:
-        npm run dev
-    4.	Open http://localhost:5173 in your browser
+You will need a valid Groq API key to run the backend. You can obtain one from https://console.groq.com.
+In the frontend/.env file, set the API URL to connect with your local backend:
+VITE_API_URL=http://localhost:3000
 
-🛠 How to Use
+Step 3: Install Dependencies and Run the Project
+You will need to run both the backend and frontend in separate terminals.
+For the backend, navigate to the backend folder and run:
+npm install
+npm start
 
-1️⃣ Upload your resume (PDF/DOCX) and paste a job description
-2️⃣ Click “Analyze Resume” and let JobFitPro process it
-3️⃣ View ATS Score, Job Match, and Resume Structure
-4️⃣ Check the Detailed Feedback Report for improvement suggestions
-5️⃣ Optimize your resume and increase your chances of landing the job!
+For the frontend, open another terminal, go to the frontend folder, and run:
+npm install
+npm run dev
 
-💡 Contributing
+This will start the frontend on http://localhost:5173 and the backend on http://localhost:3000.
+done 
+Step 4: Start Using JobFitPro
+Once both servers are running, open your browser and go to http://localhost:5173. From there, you can upload your resume and a job description to analyze them. JobFitPro will generate a detailed report with ATS scores, skill gaps, resume structure feedback, and actionable suggestions powered by AI.
 
-🚀 We welcome contributions from developers & AI enthusiasts! To contribute:
-	1.	Fork the repo & create a new branch
-	2.	Implement your feature/fix
-	3.	Submit a Pull Request
+⸻
 
-📜 License
+License
 
-MIT License - Free to use, modify, and distribute.
+This project is licensed under the MIT License. You are free to use, modify, and distribute it for both personal and commercial purposes.
 
-⭐ Support the Project
+⸻
 
-If you found JobFitPro helpful, consider giving it a ⭐ star on GitHub! 🚀
+Contributions
 
-📢 Spread the word by sharing it with your friends and colleagues!
-
-Happy coding & job hunting! 🎯💼
+Pull requests are welcome! If you’d like to improve JobFitPro, feel free to contribute. Please make sure you do not include any private API keys, credentials, or production URLs in your commits.
